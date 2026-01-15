@@ -3,14 +3,15 @@ $hasil = null;
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
     $bilangan1 = $_POST['angka1'];
     $bilangan2 = $_POST['angka2'];
-
+    
 if ($bilangan2 != 0) {
     $tinggi_m = $bilangan2 / 100; // konversi cm ke meter
     $hasil = $bilangan1 / ($tinggi_m * $tinggi_m);
 } 
 else {
     echo "<div class='alert alert-danger text-center'>Error: Tinggi badan tidak boleh nol</div>";
-    exit();
+    exit(
+    );
    
 }
 if ($hasil < 18.49) {
