@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body class="bg-light d-flex justify-content-center align-items-center min-vh-100">
-    <div class="card shadow " style="width: 20%;">
+    <div class="card shadow " style="width: 30%;">
         <div class="card-body">
             <div class="card-title text-center fw-bold fs-3 mb-3 mt-3">Kalkulator Sederhana
             </div>

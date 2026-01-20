@@ -127,8 +127,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <button class=" btn btn-success w-100">Cek Hasil Tes</button>
             </form>
 
+    
 
-            <?php
+            
+
+
+
+
+        
+
+   
+        <?php
             if ($nama !== null) : ?>
                 <div class=" alert-success mt-2">
                     Nama Peserta : <?php echo $nama; ?>
@@ -165,14 +174,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
             <?php endif;
             ?>
+</div>
+    
 
 
-
-
-
-
-
-        </div>
 </body>
 
 </html>

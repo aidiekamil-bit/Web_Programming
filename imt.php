@@ -1,33 +1,33 @@
 <?php
 $hasil = null;
-if ($_SERVER['REQUEST_METHOD'] == 'POST')
+$bilangan1 = '';
+$bilangan2 = '';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $bilangan1 = $_POST['angka1'];
     $bilangan2 = $_POST['angka2'];
     
-if ($bilangan2 != 0) {
-    $tinggi_m = $bilangan2 / 100; // konversi cm ke meter
-    $hasil = $bilangan1 / ($tinggi_m * $tinggi_m);
-} 
-else {
-    echo "<div class='alert alert-danger text-center'>Error: Tinggi badan tidak boleh nol</div>";
-    exit(
-    );
-   
-}
-if ($hasil < 18.49) {
-    $hasil = "Kurus (IMT: " . number_format($hasil, 2) . ")";
-}
-if ($hasil >= 18.5 && $hasil <= 24.99) {
-    $hasil = "Normal (IMT: " . number_format($hasil, 2) . ")";
-}
-if ($hasil >= 25 && $hasil <= 29.99) {
-    $hasil = "Gemuk (IMT: " . number_format($hasil, 2) . ")";
-}
-if ($hasil >= 30) {
-    $hasil = "Obesitas (IMT: " . number_format($hasil, 2) . ")";
-} else {
-    $bilangan1 = '';
-    $bilangan2 = '';
+    if ($bilangan2 != 0) {
+        $tinggi_m = $bilangan2 / 100; // konversi cm ke meter
+        $hasil = $bilangan1 / ($tinggi_m * $tinggi_m);
+    } 
+    else {
+        echo "<div class='alert alert-danger text-center'>Error: Tinggi badan tidak boleh nol</div>";
+        exit();
+    }
+    
+    if ($hasil < 18.49) {
+        $hasil = "Kurus (IMT: " . number_format($hasil, 2) . ")";
+    }
+    elseif ($hasil >= 18.5 && $hasil <= 24.99) {
+        $hasil = "Normal (IMT: " . number_format($hasil, 2) . ")";
+    }
+    elseif ($hasil >= 25 && $hasil <= 29.99) {
+        $hasil = "Gemuk (IMT: " . number_format($hasil, 2) . ")";
+    }
+    elseif ($hasil >= 30) {
+        $hasil = "Obesitas (IMT: " . number_format($hasil, 2) . ")";
+    }
 }
 
 ?>
