@@ -1,45 +1,32 @@
 <?php
 $total_seluruh=null;
-$hasil=0;
-$jumlah=0;
+$jumlah=null;
+$banyak_data=null;
 function ambilInput($name)
 {
     $ambil_all = $_POST[$name];
     return $ambil_all;
 } 
-function hitungTotal($jumlah, $hasil)
+function hitungTotal($jumlah)
 {
-    $jumlah=$_POST['total_belanja'];
-
-    if($jumlah >= 200000){
-    $hasil= $jumlah * 0.2;
-
-   }
-
-    elseif($jumlah >= 100000){
-    $hasil= $jumlah * 0.1;
-    }
-
-    elseif($jumlah < 100000) {
-    $hasil= $jumlah * 0;
-    }
-        
-    
-
-    return $hasil; 
+    $total = $jumlah + $jumlah + $jumlah ;
+    return $total; 
 }
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
-
-$total_diskon = hitungTotal(ambilInput('total_belanja'), $hasil);
-
-$total_seluruh = ambilInput('total_belanja') - $total_diskon;
-
-
    
+    $total_nilai = hitungTotal(ambilInput('mtk'), $jumlah);
+     $total_nilai = hitungTotal(ambilInput('bahasa_indonesia'), $jumlah);
+      $total_nilai = hitungTotal(ambilInput('nilai_produktif'), $jumlah);
+     
+
+    $total_seluruh = $total_nilai / 3;
    
+    
 }
 ?>
+
+
 
 
 
@@ -61,15 +48,23 @@ $total_seluruh = ambilInput('total_belanja') - $total_diskon;
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-header bg-danger text-white" >
-                       <h5 class="mb-2 ">Perhitungan Diskon Belanja</h5> 
+                       <h5 class="mb-2 ">Menghitung Rata-rata Nilai Siswa</h5> 
                     </div>
                     <div class="card-body">
-                        <div class="menu"> Total +> Rp 200.000 | Diskon 20% </br> Total +> Rp 100.000 | Diskon 10% </br>Total < Rp 100.000 | Tidak ada diskon </div>
+                        <div class="menu"></div>
                         
                         <form method="POST">
                             <div class="mb-3 mt-3">
-                                <label for="">Total Belanja</label>
-                                <input type="number" class="form-control" name="total_belanja">
+                                <label for="">MTK</label>
+                                <input type="number" class="form-control" name="mtk">
+                            </div>
+                            <div class="mb-3 mt-3">
+                                <label for="">B.Indonesia</label>
+                                <input type="number" class="form-control" name="bahasa_indonesia">
+                            </div>
+                            <div class="mb-3 mt-3">
+                                <label for="">Nilai Produktif</label>
+                                <input type="number" class="form-control" name="nilai_produktif">
                             </div>
                             <button class="btn btn-danger w-100">
                                 Hitung Total
@@ -79,11 +74,10 @@ $total_seluruh = ambilInput('total_belanja') - $total_diskon;
                         <?php if ($total_seluruh !== null):?>
 
                     <div class="card-footer mt-2">
-                       
-                    
+                        
 
-                        <p class="fs-5">Total belanja: <strong>
-                            Rp <?= number_format($total_seluruh, 2, ',', '.') ?> </strong><p>
+                        <p class="fs-5">Nilai Rata-rata: <strong>
+                            <?= $total_seluruh  ?> </strong><p>
                     </div>
                         <?php endif; ?>
                        
