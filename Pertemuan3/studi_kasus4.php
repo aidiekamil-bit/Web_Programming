@@ -7,9 +7,9 @@ function ambilInput($name)
     $ambil_all = $_POST[$name];
     return $ambil_all;
 } 
-function hitungTotal($jumlah)
+function hitungTotal($jumlah, $materi)
 {
-    $total = $jumlah + $jumlah + $jumlah ;
+    $total = $jumlah + $jumlah + $jumlah / $materi == 3;
     return $total; 
 }
 if($_SERVER['REQUEST_METHOD'] == "POST")
@@ -20,7 +20,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
       $total_nilai = hitungTotal(ambilInput('nilai_produktif'), $jumlah);
      
 
-    $total_seluruh = $total_nilai / 3;
+    $total_seluruh = $total_nilai / hitungTotal($materi);
    
     
 }
