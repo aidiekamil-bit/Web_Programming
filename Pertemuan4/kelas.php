@@ -1,4 +1,5 @@
 <?php
+
 ?>
 
 
@@ -18,12 +19,12 @@
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-header bg-primary text-white" >
-                       <h5 class="mb-2 mt-2 ">Calon Ketua Form</h5> 
+                       <h5 class="mb-2 mt-2 ">Data Siswa (SMK Pesat It XPro)</h5> 
                     </div>
                     <div class="card-body">
                         <div class="menu"></div>
                         
-                        <form method="POST">
+                        <form action="registrasikelas.php" method="POST">
                             <div class="mb-3 mt-3">
                                 <label for="">Nama</label>
                                 <input type="text" class="form-control" name="nama">
@@ -38,23 +39,13 @@
                             </div>
                             <div class="mb-3 mt-3">
                                 <label for="">Alamat</label>
-                                <input type="text" class="form-control" name="jurusan">
+                                <input type="text" class="form-control" name="alamat">
                             </div>
                             <button class="btn btn-warning w-100">
                             Simpan
                             </button> 
                         </form>
 
-                        <?php if ($nilai !== null):?>
-
-                    <div class="card-footer mt-2">
-                       
-                    
-
-                        <p class="fs-5">Status Kelulusan: <strong>
-                             <?= $nilai?> </strong><p>
-                    </div>
-                        <?php endif; ?>
                        
                     </div>
                 </div>
